@@ -1,0 +1,6 @@
+symbol: #47  symbolValue:  [Meggy  at: (1,1)  value: -1]
+symbol: #22  symbolValue:  [.  at: (1,6)  value: -1]
+symbol: #47  symbolValue:  [Meggy  at: (1,7)  value: -1]
+symbol: #47  symbolValue:  [Meggy  at: (2,1)  value: -1]
+symbol: #21  symbolValue:  [,  at: (2,6)  value: -1]
+symbol: #47  symbolValue:  [setPixel  at: (2,7)  value: -1]
