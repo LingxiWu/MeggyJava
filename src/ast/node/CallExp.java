@@ -7,7 +7,7 @@ import java.util.*;
 import ast.visitor.*;
 
 @SuppressWarnings("nls")
-public final class CallExp extends IExp
+public final class CallExp extends IExp implements GenericCall
 {
     private IExp _exp_;
     private String _id_;
@@ -47,6 +47,9 @@ public final class CallExp extends IExp
 
     public IExp getExp()
     {
+        if(this._exp_==null){                     //debug
+            System.out.println("CallExp _exp_ is NULLLLLLLLL");
+        }
         return this._exp_;
     }
 
@@ -66,8 +69,16 @@ public final class CallExp extends IExp
 
             node.parent(this);
         }
+        
+        if(node==null){                     //debug
+            System.out.println("CallExp setExp node is NULLLLLLLLLLLL");
+        }
 
         this._exp_ = node;
+        
+        if(this._exp_==null){                     //debug
+            System.out.println("CallExp setExp this._exp_ is NULLLLLLLLLLLL");
+        }
     }
 
     public String getId()

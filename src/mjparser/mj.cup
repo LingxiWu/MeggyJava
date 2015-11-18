@@ -89,6 +89,17 @@ non terminal IExp exp;
 non terminal BlockStatement block_statement;
 non terminal IdLiteral identifier;
 non terminal List<IClassDecl> class_list;
+non terminal IClassDecl class_declaration;
+non terminal List<MethodDecl> method_list;
+non terminal MethodDecl method_declaration;
+non terminal List<VarDecl> var_list;
+non terminal VarDecl var_declaration;
+non terminal List<Formal> param_list;
+non terminal IExp return_statement;
+non terminal IType type;
+non terminal Formal formal_param;
+non terminal CallExp call_exp;
+non terminal List<IExp> arg_list;
 
 
 /* Declare precedence and associativity  here */
@@ -101,17 +112,18 @@ precedence right NOT;
 precedence right UMINUS, LPAREN, RPAREN, NOT;
 precedence left ELSE;
 precedence left DOT;
+precedence left BYTE;
 
 
 /* Meggy Java Grammar */
 start with program;
 
 program ::=
-    IMPORT:imp MEGGY SEMI main_class:mcl
+    IMPORT:i MEGGY SEMI main_class:m class_list:cl
         {:
-            RESULT = new Program(imp.line, imp.pos, mcl, new LinkedList<IClassDecl>());
+            RESULT = new Program(i.line, i.pos, m, cl);
         :}
-        ;
+    ;
 
 main_class ::=
     CLASS identifier:name
@@ -134,10 +146,108 @@ main_class ::=
                 RESULT = new MainClass(name.getLine(), name.getPos(), name.getLexeme(), param.getLexeme(), blstm);
           :}
     ;
+
+class_list ::=
+    class_list:list class_declaration:c
+            {:
+                if (c!=null) { list.add(c); }
+                RESULT = list;
+            :}
+        | /* epsilon */
+            {:
+                RESULT = new LinkedList<IClassDecl>();
+            :}
+    ;
+
+class_declaration ::=
+    CLASS identifier:name LBRACE method_list:ml RBRACE
+            {:
+                RESULT = new TopClassDecl(name.getLine(), name.getPos(), name.getLexeme(), new LinkedList<VarDecl>(), ml);
+            :}
+    ;
+
+method_list ::=
+    method_list:list method_declaration:m
+            {:
+                if (m!=null) { list.add(m); }
+                RESULT = list;
+            :}
+        | /* epsilon */
+            {:
+                RESULT = new LinkedList<MethodDecl>();
+            :}
+    ;
+
+method_declaration ::=
+    PUBLIC type:rt identifier:name LPAREN param_list:params RPAREN LBRACE
+    statement_list:stmts return_statement:r RBRACE
+            {:
+                RESULT = new MethodDecl(name.getLine(), name.getPos(), rt, name.getLexeme(), params, new LinkedList<VarDecl>(), stmts, r);
+            :}
+    ;
+
+return_statement ::=
+    RETURN exp:e SEMI
+            {:
+                RESULT = e;
+            :}
+        | /* epsilon */
+            {:
+                RESULT = null;
+            :}
+    ;
+
+param_list ::=
+    param_list:list COMMA formal_param:p
+            {:
+                if (p!=null) { list.add(p); }
+                RESULT = list;
+            :}
+        |
+        formal_param:p
+            {:
+                LinkedList<Formal> list = new LinkedList<Formal>(); list.add(p);
+                RESULT = list;
+            :}
+        | /* epsilon */
+            {:
+                RESULT = new LinkedList<Formal>();
+            :}
+    ;
+
+formal_param ::=
+    type:t identifier:name
+            {:
+                RESULT = new Formal(t.getLine(), t.getPos(), t, name.getLexeme());
+            :}
+    ;
+
+arg_list ::=
+    arg_list:list COMMA exp:arg
+            {:
+                if (arg!=null) { list.add(arg); }
+                RESULT = list;
+            :}
+        | exp:arg
+            {:
+                LinkedList<IExp> list = new LinkedList<IExp>(); list.add(arg);
+                RESULT = list;
+            :}
+        | /* epsilon */
+            {:
+                RESULT = new LinkedList<IExp>();
+            :}
+    ;
+
 exp ::=
     LPAREN:lpr BYTE RPAREN exp:e1
         {:
             RESULT = new ByteCast(lpr.line, lpr.pos, e1);
+        :}
+    |
+    exp:a LT:op exp:b
+        {:
+            RESULT = new LtExp(op.line, op.pos, a, b);
         :}
     |
     exp:a AND:op exp:b
@@ -214,7 +324,41 @@ exp ::=
         {:
             RESULT = new NotExp(op.line, op.pos, e);
         :}
+    |
+    TONE_LITERAL:n
+        {:
+            RESULT = new ToneLiteral(n.line, n.pos, n.lexeme, n.value);
+        :}
+    |
+    THIS:lit
+        {:
+            RESULT = new ThisLiteral(lit.line, lit.pos, lit.lexeme, lit.value);
+        :}
+    |
+    NEW:n identifier:name LPAREN RPAREN
+        {:
+            RESULT = new NewExp(n.line, n.pos, name.getLexeme());
+        :}
+    |
+    call_exp:e
+        {:
+            RESULT = e;
+        :}
+    |
+    identifier:name
+        {:
+            RESULT = name;
+        :}
+
+
     ;
+call_exp ::=
+    exp:obj DOT identifier:methname LPAREN arg_list:args RPAREN
+        {:
+            RESULT = new CallExp(obj.getLine(), obj.getPos(), obj, methname.getLexeme(), args);
+        :}
+    ;
+
 statement_list ::=
     statement:s statement_list:list
         {:
@@ -226,6 +370,49 @@ statement_list ::=
                 RESULT = new LinkedList<IStatement>();
         :}
     ;
+
+type ::=
+    BOOLEAN:t
+        {:
+                RESULT = new BoolType(t.line, t.pos);
+        :}
+    |
+    BYTE:t
+        {:
+                RESULT = new ByteType(t.line, t.pos);
+        :}
+    |
+    INT:t
+        {:
+                RESULT = new IntType(t.line, t.pos);
+        :}
+    |
+    VOID:t
+        {:
+                RESULT = new VoidType(t.line, t.pos);
+        :}
+    |
+    MEGGYCOLOR:t
+        {:
+                RESULT = new ColorType(t.line, t.pos);
+        :}
+    |
+    MEGGYBUTTON:t
+        {:
+                RESULT = new ButtonType(t.line, t.pos);
+        :}
+    |
+    MEGGYTONE:t
+        {:
+                RESULT = new ToneType(t.line, t.pos);
+        :}
+    |
+    identifier:id
+        {:
+                RESULT = new ClassType(id.getLine(), id.getPos(), id.getLexeme());
+        :}
+    ;
+
 statement ::=
     block_statement:s
         {:
@@ -242,6 +429,11 @@ statement ::=
             RESULT = new MeggyDelay(md.line, md.pos, e);
         :}
     |
+    MEGGYTONESTART:mts LPAREN exp:a COMMA exp:b RPAREN SEMI
+        {:
+            RESULT = new MeggyToneStart(mts.line, mts.pos, a, b);
+        :}
+    |
     IF:i LPAREN exp:e RPAREN statement:stm
         {:
             RESULT = new IfStatement(i.line, i.pos, e, stm, null);
@@ -256,14 +448,20 @@ statement ::=
         {:
             RESULT = new WhileStatement(w.line, w.pos, e, s);
         :}
+    |
+    call_exp:call SEMI
+        {:
+            RESULT = new CallStatement(call);
+        :}
     ;
 
 block_statement ::=
-LBRACE:lb statement_list:list RBRACE
+    LBRACE:lb statement_list:list RBRACE
         {:
             RESULT = new BlockStatement(lb.line, lb.pos, list);
         :}
     ;
+
 identifier ::=
     ID:name
         {:

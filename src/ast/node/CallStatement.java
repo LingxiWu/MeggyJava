@@ -7,7 +7,7 @@ import java.util.*;
 import ast.visitor.*;
 
 @SuppressWarnings("nls")
-public final class CallStatement extends IStatement
+public final class CallStatement extends IStatement implements GenericCall
 {
     private IExp _exp_;
     private String _id_;
@@ -24,6 +24,18 @@ public final class CallStatement extends IStatement
 
         setArgs(_args_);
 
+    }
+    
+    public CallStatement(CallExp call)
+    {
+        super(call.getLine(), call.getPos());
+        
+        setExp(call.getExp());
+        
+        setId(call.getId());
+        
+        setArgs(call.getArgs());
+        
     }
 
     @Override
@@ -43,11 +55,17 @@ public final class CallStatement extends IStatement
 
     public void accept(Visitor v)
     {
+        if(v==null){                     //debug
+            System.out.println("THIS is NULL");
+        }
         v.visitCallStatement(this);
     }
 
     public IExp getExp()
     {
+        if(this._exp_==null){                     //debug
+            System.out.println("CallStatement _exp_ is NULLLLLLLLL");
+        }
         return this._exp_;
     }
 
@@ -67,8 +85,16 @@ public final class CallStatement extends IStatement
 
             node.parent(this);
         }
+        
+        if(node==null){                     //debug
+            System.out.println("CallStatement setExp node is NULLLLLLLLLLLL");
+        }
 
         this._exp_ = node;
+        
+        if(node==null){                     //debug
+            System.out.println("CallStatement setExp this._exp_ is NULLLLLLLLLLLL");
+        }
     }
 
     public String getId()
@@ -91,12 +117,12 @@ public final class CallStatement extends IStatement
         this._args_.clear();
         this._args_.addAll(list);
         for(IExp e : list)
-        {
+        {/*
             if(e.parent() != null)
             {
                 e.parent().removeChild(e);
             }
-
+*/
             e.parent(this);
         }
     }

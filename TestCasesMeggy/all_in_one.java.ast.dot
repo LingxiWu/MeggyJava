@@ -1,0 +1,607 @@
+digraph ASTGraph {
+0 [ label="Program" ];
+1 [ label="MainClass" ];
+0 -> 1
+2 [ label="BlockStatement" ];
+1 -> 2
+3 [ label="MeggySetPixel" ];
+2 -> 3
+4 [ label="ByteCast" ];
+3 -> 4
+5 [ label="IntLiteral\n0" ];
+4 -> 5
+6 [ label="ByteCast" ];
+3 -> 6
+7 [ label="IntLiteral\n1" ];
+6 -> 7
+8 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+3 -> 8
+9 [ label="MeggyDelay" ];
+2 -> 9
+10 [ label="IntLiteral\n100" ];
+9 -> 10
+11 [ label="IfStatement" ];
+2 -> 11
+12 [ label="TrueLiteral\ntrue" ];
+11 -> 12
+13 [ label="BlockStatement" ];
+11 -> 13
+14 [ label="MeggyDelay" ];
+13 -> 14
+15 [ label="IntLiteral\n100" ];
+14 -> 15
+16 [ label="IfStatement" ];
+13 -> 16
+17 [ label="NotExp" ];
+16 -> 17
+18 [ label="FalseLiteral\nfalse" ];
+17 -> 18
+19 [ label="BlockStatement" ];
+16 -> 19
+20 [ label="MeggyDelay" ];
+19 -> 20
+21 [ label="IntLiteral\n100" ];
+20 -> 21
+22 [ label="MeggyDelay" ];
+16 -> 22
+23 [ label="IntLiteral\n100" ];
+22 -> 23
+24 [ label="IfStatement" ];
+2 -> 24
+25 [ label="FalseLiteral\nfalse" ];
+24 -> 25
+26 [ label="BlockStatement" ];
+24 -> 26
+27 [ label="MeggyDelay" ];
+26 -> 27
+28 [ label="IntLiteral\n100" ];
+27 -> 28
+29 [ label="IfStatement" ];
+26 -> 29
+30 [ label="NotExp" ];
+29 -> 30
+31 [ label="TrueLiteral\ntrue" ];
+30 -> 31
+32 [ label="BlockStatement" ];
+29 -> 32
+33 [ label="MeggyDelay" ];
+32 -> 33
+34 [ label="IntLiteral\n100" ];
+33 -> 34
+35 [ label="MeggyDelay" ];
+24 -> 35
+36 [ label="IntLiteral\n100" ];
+35 -> 36
+37 [ label="IfStatement" ];
+2 -> 37
+38 [ label="CallExp" ];
+37 -> 38
+39 [ label="NewExp" ];
+38 -> 39
+40 [ label="BlockStatement" ];
+37 -> 40
+41 [ label="MeggyDelay" ];
+40 -> 41
+42 [ label="IntLiteral\n100" ];
+41 -> 42
+43 [ label="IfStatement" ];
+2 -> 43
+44 [ label="CallExp" ];
+43 -> 44
+45 [ label="NewExp" ];
+44 -> 45
+46 [ label="TrueLiteral\ntrue" ];
+44 -> 46
+47 [ label="BlockStatement" ];
+43 -> 47
+48 [ label="MeggyToneStart" ];
+47 -> 48
+49 [ label="ToneLiteral\nMeggy.Tone.C3" ];
+48 -> 49
+50 [ label="IntLiteral\n1" ];
+48 -> 50
+51 [ label="MeggyToneStart" ];
+47 -> 51
+52 [ label="ToneLiteral\nMeggy.Tone.Cs3" ];
+51 -> 52
+53 [ label="IntLiteral\n1" ];
+51 -> 53
+54 [ label="MeggyToneStart" ];
+47 -> 54
+55 [ label="ToneLiteral\nMeggy.Tone.D3" ];
+54 -> 55
+56 [ label="IntLiteral\n1" ];
+54 -> 56
+57 [ label="MeggyToneStart" ];
+47 -> 57
+58 [ label="ToneLiteral\nMeggy.Tone.Ds3" ];
+57 -> 58
+59 [ label="IntLiteral\n1" ];
+57 -> 59
+60 [ label="MeggyToneStart" ];
+47 -> 60
+61 [ label="ToneLiteral\nMeggy.Tone.E3" ];
+60 -> 61
+62 [ label="IntLiteral\n1" ];
+60 -> 62
+63 [ label="MeggyToneStart" ];
+47 -> 63
+64 [ label="ToneLiteral\nMeggy.Tone.F3" ];
+63 -> 64
+65 [ label="IntLiteral\n1" ];
+63 -> 65
+66 [ label="MeggyToneStart" ];
+47 -> 66
+67 [ label="ToneLiteral\nMeggy.Tone.Fs3" ];
+66 -> 67
+68 [ label="IntLiteral\n1" ];
+66 -> 68
+69 [ label="MeggyToneStart" ];
+47 -> 69
+70 [ label="ToneLiteral\nMeggy.Tone.G3" ];
+69 -> 70
+71 [ label="IntLiteral\n1" ];
+69 -> 71
+72 [ label="MeggyToneStart" ];
+47 -> 72
+73 [ label="ToneLiteral\nMeggy.Tone.Gs3" ];
+72 -> 73
+74 [ label="IntLiteral\n1" ];
+72 -> 74
+75 [ label="MeggyToneStart" ];
+47 -> 75
+76 [ label="ToneLiteral\nMeggy.Tone.A3" ];
+75 -> 76
+77 [ label="IntLiteral\n1" ];
+75 -> 77
+78 [ label="MeggyToneStart" ];
+47 -> 78
+79 [ label="ToneLiteral\nMeggy.Tone.As3" ];
+78 -> 79
+80 [ label="IntLiteral\n1" ];
+78 -> 80
+81 [ label="MeggyToneStart" ];
+47 -> 81
+82 [ label="ToneLiteral\nMeggy.Tone.B3" ];
+81 -> 82
+83 [ label="IntLiteral\n1" ];
+81 -> 83
+84 [ label="IfStatement" ];
+2 -> 84
+85 [ label="EqualExp" ];
+84 -> 85
+86 [ label="PlusExp" ];
+85 -> 86
+87 [ label="IntLiteral\n2" ];
+86 -> 87
+88 [ label="IntLiteral\n2" ];
+86 -> 88
+89 [ label="PlusExp" ];
+85 -> 89
+90 [ label="IntLiteral\n3" ];
+89 -> 90
+91 [ label="NegExp" ];
+89 -> 91
+92 [ label="IntLiteral\n4" ];
+91 -> 92
+93 [ label="BlockStatement" ];
+84 -> 93
+94 [ label="MeggyDelay" ];
+93 -> 94
+95 [ label="IntLiteral\n100" ];
+94 -> 95
+96 [ label="IfStatement" ];
+2 -> 96
+97 [ label="LtExp" ];
+96 -> 97
+98 [ label="PlusExp" ];
+97 -> 98
+99 [ label="IntLiteral\n2" ];
+98 -> 99
+100 [ label="IntLiteral\n1" ];
+98 -> 100
+101 [ label="PlusExp" ];
+97 -> 101
+102 [ label="IntLiteral\n4" ];
+101 -> 102
+103 [ label="NegExp" ];
+101 -> 103
+104 [ label="IntLiteral\n1" ];
+103 -> 104
+105 [ label="BlockStatement" ];
+96 -> 105
+106 [ label="MeggyDelay" ];
+105 -> 106
+107 [ label="IntLiteral\n100" ];
+106 -> 107
+108 [ label="IfStatement" ];
+2 -> 108
+109 [ label="AndExp" ];
+108 -> 109
+110 [ label="EqualExp" ];
+109 -> 110
+111 [ label="PlusExp" ];
+110 -> 111
+112 [ label="IntLiteral\n1" ];
+111 -> 112
+113 [ label="IntLiteral\n3" ];
+111 -> 113
+114 [ label="MinusExp" ];
+110 -> 114
+115 [ label="IntLiteral\n3" ];
+114 -> 115
+116 [ label="IntLiteral\n4" ];
+114 -> 116
+117 [ label="EqualExp" ];
+109 -> 117
+118 [ label="MulExp" ];
+117 -> 118
+119 [ label="ByteCast" ];
+118 -> 119
+120 [ label="IntLiteral\n1" ];
+119 -> 120
+121 [ label="ByteCast" ];
+118 -> 121
+122 [ label="IntLiteral\n2" ];
+121 -> 122
+123 [ label="MulExp" ];
+117 -> 123
+124 [ label="ByteCast" ];
+123 -> 124
+125 [ label="IntLiteral\n3" ];
+124 -> 125
+126 [ label="ByteCast" ];
+123 -> 126
+127 [ label="IntLiteral\n4" ];
+126 -> 127
+128 [ label="BlockStatement" ];
+108 -> 128
+129 [ label="MeggyDelay" ];
+128 -> 129
+130 [ label="IntLiteral\n100" ];
+129 -> 130
+131 [ label="IfStatement" ];
+2 -> 131
+132 [ label="EqualExp" ];
+131 -> 132
+133 [ label="MeggyGetPixel" ];
+132 -> 133
+134 [ label="ByteCast" ];
+133 -> 134
+135 [ label="IntLiteral\n1" ];
+134 -> 135
+136 [ label="ByteCast" ];
+133 -> 136
+137 [ label="IntLiteral\n0" ];
+136 -> 137
+138 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+132 -> 138
+139 [ label="BlockStatement" ];
+131 -> 139
+140 [ label="WhileStatement" ];
+139 -> 140
+141 [ label="MeggyCheckButton" ];
+140 -> 141
+142 [ label="ButtonLiteral\nMeggy.Button.B" ];
+141 -> 142
+143 [ label="BlockStatement" ];
+140 -> 143
+144 [ label="MeggyDelay" ];
+143 -> 144
+145 [ label="IntLiteral\n100" ];
+144 -> 145
+146 [ label="WhileStatement" ];
+2 -> 146
+147 [ label="CallExp" ];
+146 -> 147
+148 [ label="NewExp" ];
+147 -> 148
+149 [ label="TrueLiteral\ntrue" ];
+147 -> 149
+150 [ label="BlockStatement" ];
+146 -> 150
+151 [ label="MeggyDelay" ];
+150 -> 151
+152 [ label="IntLiteral\n100" ];
+151 -> 152
+153 [ label="MeggyToneStart" ];
+2 -> 153
+154 [ label="ToneLiteral\nMeggy.Tone.A3" ];
+153 -> 154
+155 [ label="IntLiteral\n1" ];
+153 -> 155
+156 [ label="CallStatement" ];
+2 -> 156
+157 [ label="NewExp" ];
+156 -> 157
+158 [ label="CallStatement" ];
+2 -> 158
+159 [ label="NewExp" ];
+158 -> 159
+160 [ label="TrueLiteral\ntrue" ];
+158 -> 160
+161 [ label="TopClassDecl" ];
+0 -> 161
+162 [ label="MethodDecl" ];
+161 -> 162
+163 [ label="BoolType" ];
+162 -> 163
+164 [ label="Formal" ];
+162 -> 164
+165 [ label="BoolType" ];
+164 -> 165
+166 [ label="MeggySetPixel" ];
+162 -> 166
+167 [ label="ByteCast" ];
+166 -> 167
+168 [ label="IntLiteral\n0" ];
+167 -> 168
+169 [ label="ByteCast" ];
+166 -> 169
+170 [ label="IntLiteral\n1" ];
+169 -> 170
+171 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+166 -> 171
+172 [ label="TrueLiteral\ntrue" ];
+162 -> 172
+173 [ label="TopClassDecl" ];
+0 -> 173
+174 [ label="MethodDecl" ];
+173 -> 174
+175 [ label="BoolType" ];
+174 -> 175
+176 [ label="MeggySetPixel" ];
+174 -> 176
+177 [ label="ByteCast" ];
+176 -> 177
+178 [ label="IntLiteral\n0" ];
+177 -> 178
+179 [ label="ByteCast" ];
+176 -> 179
+180 [ label="IntLiteral\n1" ];
+179 -> 180
+181 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+176 -> 181
+182 [ label="MeggySetPixel" ];
+174 -> 182
+183 [ label="ByteCast" ];
+182 -> 183
+184 [ label="IntLiteral\n1" ];
+183 -> 184
+185 [ label="ByteCast" ];
+182 -> 185
+186 [ label="IntLiteral\n2" ];
+185 -> 186
+187 [ label="ColorLiteral\nMeggy.Color.RED" ];
+182 -> 187
+188 [ label="FalseLiteral\nfalse" ];
+174 -> 188
+189 [ label="MethodDecl" ];
+173 -> 189
+190 [ label="BoolType" ];
+189 -> 190
+191 [ label="Formal" ];
+189 -> 191
+192 [ label="BoolType" ];
+191 -> 192
+193 [ label="IfStatement" ];
+189 -> 193
+194 [ label="IdLiteral\ninput1" ];
+193 -> 194
+195 [ label="BlockStatement" ];
+193 -> 195
+196 [ label="MeggySetPixel" ];
+189 -> 196
+197 [ label="ByteCast" ];
+196 -> 197
+198 [ label="IntLiteral\n0" ];
+197 -> 198
+199 [ label="ByteCast" ];
+196 -> 199
+200 [ label="IntLiteral\n1" ];
+199 -> 200
+201 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+196 -> 201
+202 [ label="MeggySetPixel" ];
+189 -> 202
+203 [ label="ByteCast" ];
+202 -> 203
+204 [ label="IntLiteral\n1" ];
+203 -> 204
+205 [ label="ByteCast" ];
+202 -> 205
+206 [ label="IntLiteral\n2" ];
+205 -> 206
+207 [ label="ColorLiteral\nMeggy.Color.RED" ];
+202 -> 207
+208 [ label="TrueLiteral\ntrue" ];
+189 -> 208
+209 [ label="MethodDecl" ];
+173 -> 209
+210 [ label="ByteType" ];
+209 -> 210
+211 [ label="Formal" ];
+209 -> 211
+212 [ label="BoolType" ];
+211 -> 212
+213 [ label="Formal" ];
+209 -> 213
+214 [ label="ByteType" ];
+213 -> 214
+215 [ label="MeggySetPixel" ];
+209 -> 215
+216 [ label="ByteCast" ];
+215 -> 216
+217 [ label="IntLiteral\n0" ];
+216 -> 217
+218 [ label="ByteCast" ];
+215 -> 218
+219 [ label="IntLiteral\n1" ];
+218 -> 219
+220 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+215 -> 220
+221 [ label="MeggySetPixel" ];
+209 -> 221
+222 [ label="ByteCast" ];
+221 -> 222
+223 [ label="IntLiteral\n1" ];
+222 -> 223
+224 [ label="ByteCast" ];
+221 -> 224
+225 [ label="IntLiteral\n2" ];
+224 -> 225
+226 [ label="ColorLiteral\nMeggy.Color.RED" ];
+221 -> 226
+227 [ label="CallStatement" ];
+209 -> 227
+228 [ label="ThisLiteral\nthis" ];
+227 -> 228
+229 [ label="ByteCast" ];
+209 -> 229
+230 [ label="IntLiteral\n7" ];
+229 -> 230
+231 [ label="MethodDecl" ];
+173 -> 231
+232 [ label="IntType" ];
+231 -> 232
+233 [ label="Formal" ];
+231 -> 233
+234 [ label="BoolType" ];
+233 -> 234
+235 [ label="Formal" ];
+231 -> 235
+236 [ label="ByteType" ];
+235 -> 236
+237 [ label="Formal" ];
+231 -> 237
+238 [ label="IntType" ];
+237 -> 238
+239 [ label="MeggySetPixel" ];
+231 -> 239
+240 [ label="ByteCast" ];
+239 -> 240
+241 [ label="IntLiteral\n0" ];
+240 -> 241
+242 [ label="ByteCast" ];
+239 -> 242
+243 [ label="IntLiteral\n1" ];
+242 -> 243
+244 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+239 -> 244
+245 [ label="MeggySetPixel" ];
+231 -> 245
+246 [ label="ByteCast" ];
+245 -> 246
+247 [ label="IntLiteral\n1" ];
+246 -> 247
+248 [ label="ByteCast" ];
+245 -> 248
+249 [ label="IntLiteral\n2" ];
+248 -> 249
+250 [ label="ColorLiteral\nMeggy.Color.RED" ];
+245 -> 250
+251 [ label="IntLiteral\n1" ];
+231 -> 251
+252 [ label="MethodDecl" ];
+173 -> 252
+253 [ label="ColorType" ];
+252 -> 253
+254 [ label="Formal" ];
+252 -> 254
+255 [ label="ColorType" ];
+254 -> 255
+256 [ label="MeggySetPixel" ];
+252 -> 256
+257 [ label="ByteCast" ];
+256 -> 257
+258 [ label="IntLiteral\n0" ];
+257 -> 258
+259 [ label="ByteCast" ];
+256 -> 259
+260 [ label="IntLiteral\n1" ];
+259 -> 260
+261 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+256 -> 261
+262 [ label="MeggySetPixel" ];
+252 -> 262
+263 [ label="ByteCast" ];
+262 -> 263
+264 [ label="IntLiteral\n1" ];
+263 -> 264
+265 [ label="ByteCast" ];
+262 -> 265
+266 [ label="IntLiteral\n2" ];
+265 -> 266
+267 [ label="ColorLiteral\nMeggy.Color.RED" ];
+262 -> 267
+268 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+252 -> 268
+269 [ label="MethodDecl" ];
+173 -> 269
+270 [ label="ButtonType" ];
+269 -> 270
+271 [ label="Formal" ];
+269 -> 271
+272 [ label="ButtonType" ];
+271 -> 272
+273 [ label="MeggySetPixel" ];
+269 -> 273
+274 [ label="ByteCast" ];
+273 -> 274
+275 [ label="IntLiteral\n0" ];
+274 -> 275
+276 [ label="ByteCast" ];
+273 -> 276
+277 [ label="IntLiteral\n1" ];
+276 -> 277
+278 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+273 -> 278
+279 [ label="MeggySetPixel" ];
+269 -> 279
+280 [ label="ByteCast" ];
+279 -> 280
+281 [ label="IntLiteral\n1" ];
+280 -> 281
+282 [ label="ByteCast" ];
+279 -> 282
+283 [ label="IntLiteral\n2" ];
+282 -> 283
+284 [ label="ColorLiteral\nMeggy.Color.RED" ];
+279 -> 284
+285 [ label="ButtonLiteral\nMeggy.Button.Up" ];
+269 -> 285
+286 [ label="MethodDecl" ];
+173 -> 286
+287 [ label="ToneType" ];
+286 -> 287
+288 [ label="Formal" ];
+286 -> 288
+289 [ label="ToneType" ];
+288 -> 289
+290 [ label="MeggySetPixel" ];
+286 -> 290
+291 [ label="ByteCast" ];
+290 -> 291
+292 [ label="IntLiteral\n0" ];
+291 -> 292
+293 [ label="ByteCast" ];
+290 -> 293
+294 [ label="IntLiteral\n1" ];
+293 -> 294
+295 [ label="ColorLiteral\nMeggy.Color.DARK" ];
+290 -> 295
+296 [ label="MeggySetPixel" ];
+286 -> 296
+297 [ label="ByteCast" ];
+296 -> 297
+298 [ label="IntLiteral\n1" ];
+297 -> 298
+299 [ label="ByteCast" ];
+296 -> 299
+300 [ label="IntLiteral\n2" ];
+299 -> 300
+301 [ label="ColorLiteral\nMeggy.Color.RED" ];
+296 -> 301
+302 [ label="ToneLiteral\nMeggy.Tone.A3" ];
+286 -> 302
+}

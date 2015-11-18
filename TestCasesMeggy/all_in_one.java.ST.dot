@@ -1,0 +1,8 @@
+digraph SymTable {
+	graph [rankdir="LR"];
+	node [shape=record];
+<f0> ClassSTE | <f1> mName = newclass2| <f2> mMain = false| <f3> mSuperClass = null| <f4> mScope 
+<f0> ClassSTE | <f1> mName = newclass1| <f2> mMain = false| <f3> mSuperClass = null| <f4> mScope 
+<f0> ClassSTE | <f1> mName = newclass2| <f2> mMain = false| <f3> mSuperClass = null| <f4> mScope 
+<f0> ClassSTE | <f1> mName = newclass1| <f2> mMain = false| <f3> mSuperClass = null| <f4> mScope 
+}

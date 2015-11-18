@@ -59,7 +59,7 @@ public class MJDriver {
           ast_root.accept(new DotVisitor(new PrintWriter(astout)));
           System.out.println("Printing AST to " + filename + ".ast.dot");
 
-          /*
+          
           // create the symbol table
           BuildSymTable stVisitor = new BuildSymTable();
           ast_root.accept(stVisitor);
@@ -71,10 +71,10 @@ public class MJDriver {
                 new java.io.FileOutputStream(filename + ".ST.dot"));
           System.out.println("Printing symbol table to " + filename + ".ST.dot");
           globalST.outputDot(STout);
-          */
+          
                     
           // perform type checking
-          ast_root.accept(new CheckTypes(new SymTable()));
+          ast_root.accept(new CheckTypes(globalST));
           
           /*
           // Determine whether to do register allocation or not.
@@ -101,7 +101,7 @@ public class MJDriver {
           java.io.PrintStream avrsout =
               new java.io.PrintStream(
                       new java.io.FileOutputStream(filename + ".s"));
-          ast_root.accept(new AVRgenVisitor(new PrintWriter(avrsout),new SymTable()));
+          ast_root.accept(new AVRgenVisitor(new PrintWriter(avrsout),globalST));
           System.out.println("Printing Atmel assembly to " + filename + ".s");
           
 
